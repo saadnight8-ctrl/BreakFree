@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #0a1628;
+  --color-foreground: #f0ede6;
+  --color-card: #111f3a;
+  --color-card-foreground: #f0ede6;
+  --color-primary: #1a9e8a;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #1e2d4a;
+  --color-secondary-foreground: #c8d8e8;
+  --color-muted: #1a2640;
+  --color-muted-foreground: #8fa3bc;
+  --color-accent: #e8a020;
+  --color-accent-foreground: #0a1628;
+  --color-border: #1e3050;
+  --color-ring: #1a9e8a;
+  --radius: 0.5rem;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar, show on scroll */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+/* BreakFree visual layer */
+:root {
+  --bf-cyan: #1a9e8a;
+  --bf-ink: #0a1628;
+  --bf-panel: #111f3a;
+}
+
+::selection {
+  background: rgba(26, 158, 138, 0.35);
+  color: #ffffff;
+}
+
+.bf-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.19;
+  background-image:
+    linear-gradient(rgba(143, 163, 188, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 163, 188, 0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 75%);
+  z-index: 0;
+}
+
+.bf-ambient {
+  position: fixed;
+  width: 38rem;
+  height: 38rem;
+  border-radius: 999px;
+  filter: blur(110px);
+  pointer-events: none;
+  opacity: 0.13;
+  z-index: 0;
+}
+
+.bf-ambient-a {
+  top: -16rem;
+  right: -10rem;
+  background: #1a9e8a;
+}
+
+.bf-ambient-b {
+  bottom: -18rem;
+  left: -12rem;
+  background: #7c3aed;
+}
+
+.bf-logo-glow {
+  box-shadow: 0 0 0 1px rgba(26,158,138,.18), 0 0 24px rgba(26,158,138,.28);
+}
+
+.bf-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
+  background-image: radial-gradient(circle at 88% 8%, rgba(26,158,138,.09), transparent 34%);
+}
+
+.bf-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(125deg, transparent 0%, rgba(255,255,255,.028) 35%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform .7s ease;
+}
+
+.bf-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(26,158,138,.42) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,.20), 0 0 28px rgba(26,158,138,.08);
+}
+
+.bf-card:hover::after {
+  transform: translateX(120%);
+}
+
+.bf-card-active {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent), 0 18px 55px rgba(0,0,0,.22);
+}
+
+.bf-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 75%, rgba(26,158,138,.10), transparent 28%),
+    radial-gradient(circle at 84% 16%, rgba(167,139,250,.09), transparent 30%);
+}
+
+.bf-orbit {
+  position: absolute;
+  border: 1px solid rgba(26,158,138,.13);
+  border-radius: 999px;
+  pointer-events: none;
+  transform: rotate(-18deg);
+}
+
+.bf-orbit-one {
+  width: 42rem;
+  height: 15rem;
+  right: -12rem;
+  top: 6rem;
+}
+
+.bf-orbit-two {
+  width: 34rem;
+  height: 12rem;
+  right: -7rem;
+  top: 12rem;
+  border-color: rgba(167,139,250,.09);
+}
+
+.bf-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.bf-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 24%;
+  left: -28%;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.075), transparent);
+  pointer-events: none;
+  transition: left .7s ease;
+}
+
+.bf-shine:hover::before {
+  left: 115%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
