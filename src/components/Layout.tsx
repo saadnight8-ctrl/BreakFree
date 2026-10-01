@@ -1,6 +1,7 @@
 import { Outlet, NavLink, useLocation } from 'react-router'
 import { useState, useEffect } from 'react'
 import { copy, useLanguage } from '../i18n'
+import BrandLogo from './BrandLogo'
 
 export default function Layout() {
   const [scrolled, setScrolled] = useState(false)
@@ -12,7 +13,7 @@ export default function Layout() {
 
   const nav = [
     { label: c.home, to: '/' },
-    { label: c.next, to: '/next-step' },
+    { label: c.plan, to: '/personal-plan' },
     { label: c.faq, to: '/faq' },
     { label: c.help, to: '/help' },
     { label: c.streak, to: '/streak' },
@@ -24,6 +25,7 @@ export default function Layout() {
     { label: c.directions, to: '/directions' },
     { label: c.crisis, to: '/crisis' },
     { label: c.bibliography, to: '/bibliography' },
+    { label: c.about, to: '/about' },
   ]
 
   useEffect(() => {
@@ -50,19 +52,15 @@ export default function Layout() {
       <nav
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          borderBottom: scrolled ? '1px solid #1e3050' : '1px solid transparent',
-          background: scrolled ? 'rgba(10,22,40,0.82)' : 'rgba(10,22,40,0.18)',
-          backdropFilter: 'blur(18px)',
+          borderBottom: scrolled ? '1px solid rgba(83,108,139,0.28)' : '1px solid transparent',
+          background: scrolled ? 'rgba(6,14,28,0.84)' : 'rgba(10,22,40,0.16)',
+          backdropFilter: 'blur(20px)',
+          boxShadow: scrolled ? '0 14px 34px rgba(0,0,0,0.18)' : 'none',
         }}
       >
         <div className="max-w-7xl mx-auto px-5 md:px-6 h-16 flex items-center justify-between gap-4">
-          <NavLink to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-8 h-8 rounded-full bg-[#1a9e8a] flex items-center justify-center text-white font-black text-sm bf-logo-glow group-hover:scale-110 transition-transform">
-              BF
-            </div>
-            <span className="font-black text-[#f0ede6] tracking-tight text-lg" style={{ fontFamily: 'var(--font-display)' }}>
-              Break<span className="text-[#1a9e8a]">Free</span>
-            </span>
+          <NavLink to="/" className="flex items-center gap-2.5 group shrink-0" aria-label="BreakFree home">
+            <BrandLogo compact className="group-hover:scale-[1.04] transition-transform duration-200" />
           </NavLink>
 
           <div className="hidden lg:flex items-center gap-0.5 min-w-0">
@@ -71,7 +69,7 @@ export default function Layout() {
                 key={n.to}
                 to={n.to}
                 end={n.to === '/'}
-                className={({ isActive }) => `px-3 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 whitespace-nowrap ${isActive ? 'bg-[#1a9e8a]/15 text-[#54d5bf] shadow-[0_0_24px_rgba(26,158,138,0.08)]' : 'text-[#8fa3bc] hover:text-[#f0ede6] hover:bg-white/5'}`}
+                className={({ isActive }) => `px-3 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 whitespace-nowrap ${isActive ? (n.to === '/personal-plan' ? 'bg-[#a78bfa]/15 text-[#d6ccff] ring-1 ring-[#a78bfa]/20' : 'bg-[#1a9e8a]/15 text-[#54d5bf] shadow-[0_0_24px_rgba(26,158,138,0.08)]') : (n.to === '/personal-plan' ? 'text-[#c7bfff] hover:text-white hover:bg-[#a78bfa]/10' : 'text-[#8fa3bc] hover:text-[#f0ede6] hover:bg-white/5')}`}
               >
                 {n.label}
               </NavLink>
@@ -144,11 +142,9 @@ export default function Layout() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-10 mb-10">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-8 h-8 rounded-full bg-[#1a9e8a] flex items-center justify-center text-white font-black text-sm">BF</div>
-                <span className="font-black text-[#f0ede6] text-lg" style={{ fontFamily: 'var(--font-display)' }}>
-                  Break<span className="text-[#1a9e8a]">Free</span>
-                </span>
+              <div className="mb-4 flex items-center gap-3">
+                <BrandLogo />
+                <span className="hidden sm:inline text-[10px] uppercase tracking-[0.2em] text-[#667b95]">One step at a time</span>
               </div>
               <p className="text-[#8fa3bc] text-sm leading-relaxed max-w-xs">{f.blurb}</p>
               <div className="mt-5 inline-flex items-center gap-2 bg-red-600/20 border border-red-500/30 rounded-full px-4 py-1.5">

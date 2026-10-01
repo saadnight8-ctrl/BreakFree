@@ -45,7 +45,7 @@ export default function HelpSupport() {
               <p className="text-[#1a9e8a] text-xs uppercase tracking-[0.22em] font-bold mb-2">{tx('Talk to someone', 'किसी से बात करें', language)}</p>
               <h2 className="text-3xl md:text-4xl font-black text-[#f0ede6]" style={{ fontFamily: 'var(--font-display)' }}>{tx('Useful numbers in India', 'भारत में काम के नंबर', language)}</h2>
             </div>
-            <Link to="/next-step" className="text-[#8fa3bc] hover:text-white text-sm border border-[#1e3050] hover:border-[#1a9e8a]/40 rounded-full px-5 py-2.5 transition-all">{tx('Not sure what you need?', 'समझ नहीं आ रहा क्या चाहिए?', language)} →</Link>
+            <Link to="/personal-plan" className="text-[#8fa3bc] hover:text-white text-sm border border-[#1e3050] hover:border-[#1a9e8a]/40 rounded-full px-5 py-2.5 transition-all">{tx('Want a plan built for you?', 'अपने लिए plan बनवाना है?', language)} →</Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {HELPLINES.map(h => (

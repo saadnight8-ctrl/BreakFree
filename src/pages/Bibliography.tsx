@@ -27,6 +27,37 @@ const SOURCES = [
     usedFor: 'Used for information about government drug-demand-reduction programmes, counselling, rehabilitation and awareness work in India.'
   },
   {
+    title: 'Government of India / PIB — Raju: From Substance Dependency to Stability',
+    url: 'https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2309207&lang=1&reg=3',
+    usedFor: 'Source for the recovery story about Raju, including treatment, counselling, follow-up support, employment and rebuilding stability.'
+  },
+  {
+    title: 'Government of India / PIB — Rahul Llowang: Recovery and Self-Reliance',
+    url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2309673&lang=2&reg=48',
+    usedFor: 'Source for the recovery story about Rahul Llowang and the role of treatment, counselling, rehabilitation and support in his move towards self-employment and financial independence.'
+  },
+  {
+    title: 'Government of India / PIB — Sajjad: Recovery and Sporting Reintegration',
+    url: 'https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2313416&lang=1&reg=3',
+    usedFor: 'Source for the recovery story about Sajjad, including treatment, counselling, skills support, return to sport and peer encouragement.'
+  },
+  {
+    title: 'Government of India / PIB — Rajveer: Recovery and Family Support',
+    url: 'https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2314024&lang=1&reg=3',
+    usedFor: 'Source for the recovery story about Rajveer and the role of professional care and family support in rebuilding daily life and livelihood.'
+  },
+  {
+    title: 'Government of India / PIB — Garry: Recovery, Self-Reliance and Social Reintegration',
+    url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2307588&lang=2&reg=48',
+    usedFor: 'Source for the recovery story about Garry and the role of counselling, family support, rehabilitation and follow-up in rebuilding a stable and productive life.'
+  },
+  {
+    title: 'Government of India / PIB — Karan: Addiction to Recovery and Stability',
+    url: 'https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2315990&lang=1&reg=3',
+    usedFor: 'Source for the recovery story about Karan and the role of treatment, counselling, family support and after-care in rebuilding stability and work.'
+  },
+
+  {
     title: 'Government of India — Emergency Response Support System (112)',
     url: 'https://112.gov.in/',
     usedFor: 'Source for the emergency number 112 and the information about India’s unified emergency response system.'
@@ -85,19 +116,13 @@ export default function Bibliography() {
             {tx('Bibliography', 'स्रोत', language)}
           </h1>
           <p className="text-[#8fa3bc] text-lg leading-relaxed">
-            {tx('These are the websites and organisations we used to check the information on BreakFree. We have kept the list simple so it is easy to see where the information came from.', 'ये वे वेबसाइट और संस्थाएँ हैं जिनसे हमने BreakFree की जानकारी को चेक किया। हमने सूची को आसान रखा है ताकि स्रोत साफ दिखें।', language)}
+            {tx('These are the websites and organisations we used to check the information on BreakFree, including the official sources for the recovery stories shown on the homepage.', 'ये वे वेबसाइट और संस्थाएँ हैं जिनसे हमने BreakFree की जानकारी को चेक किया, जिसमें homepage पर दिखाई गई recovery stories के official sources भी शामिल हैं।', language)}
           </p>
         </div>
       </section>
 
       <section className="py-16 bg-[#0a1628]">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="bf-card bg-[#111f3a] border border-[#1e3050] rounded-2xl p-6 md:p-8 mb-8">
-            <p className="text-[#c8d8e8] text-sm leading-relaxed">
-              <strong className="text-[#f0ede6]">{tx('A quick note:', 'एक जरूरी नोट:', language)}</strong> {tx('The recovery stories on the homepage are example stories written for this school project. They are not presented as verified testimonials from real people. The design, navigation, pledge and streak calculator are also original project features rather than information taken from these sources.', 'होमपेज की recovery stories इस स्कूल प्रोजेक्ट के लिए लिखी गई उदाहरण कहानियाँ हैं। इन्हें असली लोगों के verified testimonials के रूप में पेश नहीं किया गया है। Design, navigation, pledge और streak calculator भी हमारे original project features हैं।', language)}
-            </p>
-          </div>
-
           <div className="space-y-5">
             {SOURCES.map((source, index) => (
               <article key={source.url} className="bf-card bg-[#111f3a] border border-[#1e3050] rounded-2xl p-6 md:p-7">

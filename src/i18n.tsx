@@ -37,8 +37,8 @@ export function useLanguage() {
 
 export const copy = {
   nav: {
-    en: { home: 'Home', next: 'Next Step', faq: 'FAQ', help: 'Help & Support', streak: 'Streak & Rewards', contact: 'Contact', crisis: 'Crisis Help', bibliography: 'Bibliography', directions: 'Directions', toggle: 'हिंदी' },
-    hi: { home: 'होम', next: 'अगला कदम', faq: 'सवाल-जवाब', help: 'मदद और सहायता', streak: 'स्ट्रीक और रिवॉर्ड्स', contact: 'संपर्क', crisis: 'तुरंत मदद', bibliography: 'स्रोत', directions: 'सहायता पाने का तरीका', toggle: 'EN' },
+    en: { home: 'Home', plan: 'My Plan', faq: 'FAQ', help: 'Help & Support', streak: 'Streak & Rewards', contact: 'Contact', crisis: 'Crisis Help', bibliography: 'Bibliography', directions: 'Directions', about: 'About Us', toggle: 'हिंदी' },
+    hi: { home: 'होम', plan: 'मेरा Plan', faq: 'सवाल-जवाब', help: 'मदद और सहायता', streak: 'स्ट्रीक और रिवॉर्ड्स', contact: 'संपर्क', crisis: 'तुरंत मदद', bibliography: 'स्रोत', directions: 'सहायता पाने का तरीका', about: 'हमारे बारे में', toggle: 'EN' },
   },
   footer: {
     en: { blurb: 'A school project made to make drug information easier to understand and help people find support.', pages: 'Pages', emergency: 'Emergency', drugHelpline: 'National Drug Helpline', icall: 'iCall TISS', emergencyServices: 'Emergency services', footerNote: 'Learn something useful. Ask for help when you need it.' },

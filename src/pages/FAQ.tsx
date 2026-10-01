@@ -25,7 +25,6 @@ const FAQS = [
     items: [
       { q: { en: 'What is BreakFree?', hi: 'BreakFree क्या है?' }, a: { en: 'BreakFree is a student project about drug awareness, recovery support, and finding the next useful step.', hi: 'BreakFree ड्रग जागरूकता, रिकवरी सपोर्ट और अगले काम के कदम तक पहुँचने के बारे में एक छात्र प्रोजेक्ट है।' } },
       { q: { en: 'Who is it for?', hi: 'यह किसके लिए है?' }, a: { en: 'It can help someone looking for information, someone seeking support, or a friend or family member trying to help.', hi: 'यह जानकारी खोजने वाले व्यक्ति, मदद चाहने वाले व्यक्ति या किसी दोस्त/परिवार के सदस्य की मदद करने की कोशिश कर रहे व्यक्ति के लिए उपयोगी हो सकता है।' } },
-      { q: { en: 'Are the recovery stories real testimonials?', hi: 'क्या रिकवरी की कहानियाँ असली testimonials हैं?' }, a: { en: 'No. The homepage clearly labels them as example stories written for this school project, not verified testimonials from real people.', hi: 'नहीं। होमपेज पर उन्हें इस स्कूल प्रोजेक्ट के लिए लिखी गई उदाहरण कहानियों के रूप में साफ बताया गया है, न कि असली लोगों के verified testimonials के रूप में।' } },
     ],
   },
 ]

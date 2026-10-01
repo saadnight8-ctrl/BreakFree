@@ -9,7 +9,8 @@ import StreakRewards from './pages/StreakRewards'
 import CrisisManagement from './pages/CrisisManagement'
 import NotFound from './pages/NotFound'
 import Bibliography from './pages/Bibliography'
-import NextStep from './pages/NextStep'
+import PersonalPlan from './pages/PersonalPlan'
+import AboutUs from './pages/AboutUs'
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       { index: true, Component: Home },
-      { path: 'next-step', Component: NextStep },
+      { path: 'personal-plan', Component: PersonalPlan },
       { path: 'faq', Component: FAQ },
       { path: 'help', Component: HelpSupport },
       { path: 'contact', Component: Contact },
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
       { path: 'streak', Component: StreakRewards },
       { path: 'crisis', Component: CrisisManagement },
       { path: 'bibliography', Component: Bibliography },
+      { path: 'about', Component: AboutUs },
       { path: '*', Component: NotFound },
     ],
   },
