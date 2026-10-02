@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import BrandLogo from '../components/BrandLogo'
-import { useLanguage, tx } from '../i18n'
+import { useLanguage, tx, translateHindi } from '../i18n'
 
 const team = [
   {
@@ -109,9 +109,9 @@ export default function AboutUs() {
               <article key={person.name} className="group rounded-3xl border border-[#526985]/25 bg-[#111f3a] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#7b91aa]/40">
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-black border" style={{ color: person.tone, borderColor: `${person.tone}33`, background: `${person.tone}10` }}>{person.initials}</div>
-                  <div><h3 className="text-xl font-black text-[#f0ede6]">{person.name}</h3><p className="text-[#8095ad] text-xs font-semibold">{language === 'hi' ? person.hiRole : person.role}</p></div>
+                  <div><h3 className="text-xl font-black text-[#f0ede6]">{person.name}</h3><p className="text-[#8095ad] text-xs font-semibold">{language === 'hi' ? translateHindi(person.hiRole) : person.role}</p></div>
                 </div>
-                <p className="text-[#9eafc2] text-sm leading-relaxed">{language === 'hi' ? person.hiBlurb : person.blurb}</p>
+                <p className="text-[#9eafc2] text-sm leading-relaxed">{language === 'hi' ? translateHindi(person.hiBlurb) : person.blurb}</p>
               </article>
             ))}
           </div>

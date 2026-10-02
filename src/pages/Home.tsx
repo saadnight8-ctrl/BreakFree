@@ -1,12 +1,13 @@
 import { Link } from 'react-router'
 import { useState, type FormEvent } from 'react'
-import { useLanguage, tx } from '../i18n'
+import { useLanguage, tx, translateHindi } from '../i18n'
+import BrandLogo from '../components/BrandLogo'
 
 const STATS = [
-  { number: '7.5 Cr', label: 'Indians with drug use disorders' },
-  { number: '18', label: 'Avg age of first drug use' },
-  { number: '93%', label: 'Recovery rate with support' },
-  { number: '14 Lakh', label: 'Quit successfully each year' },
+  { number: '7+ Cr', label: 'People affected by substance use disorder in India', labelHi: 'भारत में substance use disorder से प्रभावित लोग' },
+  { number: '1.2 Cr', label: 'Children affected by substance use disorder', labelHi: 'substance use disorder से प्रभावित बच्चे' },
+  { number: '58 Lakh', label: 'Women affected by substance use disorder', labelHi: 'substance use disorder से प्रभावित महिलाएं' },
+  { number: '28.29 Lakh', label: 'People treated and rehabilitated through government-supported services', labelHi: 'सरकारी सहायता वाली सेवाओं से treatment और rehabilitation पाने वाले लोग' },
 ]
 
 const FEATURES = [
@@ -98,20 +99,6 @@ const FEATURES = [
   bg: 'rgba(52,211,153,0.1)',
   border: 'rgba(52,211,153,0.25)',
   },
-  {
-  to: '/contact',
-  icon: (
-  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-    <rect x="4" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M4 9l10 7 10-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-  ),
-  title: 'Contact Us',
-  desc: 'Have a question about the project? Send us a message.',
-  color: '#60a5fa',
-  bg: 'rgba(96,165,250,0.1)',
-  border: 'rgba(96,165,250,0.25)',
-  },
 ]
 
 const FEATURE_HI = [
@@ -121,7 +108,6 @@ const FEATURE_HI = [
   { title: 'स्ट्रीक और रिवॉर्ड्स', desc: 'अपने दिनों की प्रगति देखें और महत्वपूर्ण पड़ाव दर्ज करें।' },
   { title: 'संकट सहायता', desc: 'आपातकालीन नंबर और संकट की स्थिति में जरूरी कदम देखें।' },
   { title: 'पीयर सपोर्ट', desc: 'बात करने के लिए लोग और सपोर्ट ग्रुप खोजें।' },
-  { title: 'संपर्क करें', desc: 'प्रोजेक्ट के बारे में सवाल है? हमें संदेश भेजें।' },
 ]
 
 const STEP_HI = [
@@ -265,7 +251,7 @@ export default function Home() {
       JITAI <span className="text-[#6f839d] tracking-normal normal-case font-medium">(Just in Time Adaption Initiative)</span>
     </div>
 
-    <img src="/breakfree-logo.png" alt="BreakFree" className="h-14 md:h-16 w-auto mb-7 opacity-95" />
+    <BrandLogo className="h-14 md:h-16 w-auto mb-7 opacity-95" />
 
     <h1
       className="text-6xl lg:text-8xl font-black leading-[0.9] mb-6"
@@ -323,9 +309,17 @@ export default function Home() {
       >
       {s.number}
       </div>
-      <p className="text-[#c8d8e8] text-sm leading-snug">{language === 'hi' ? ['ड्रग उपयोग विकार वाले भारतीय', 'ड्रग का पहली बार उपयोग करने की औसत उम्र', 'सहायता के साथ रिकवरी दर', 'हर साल सफलतापूर्वक छोड़ने वाले'][i] : s.label}</p>
+      <p className="text-[#c8d8e8] text-sm leading-snug">{language === 'hi' ? translateHindi(s.labelHi) : s.label}</p>
       </div>
     ))}
+    </div>
+    <div className="mt-4 col-span-2 text-center">
+      <p className="text-[#6f839d] text-[11px] leading-relaxed max-w-xl mx-auto">
+        {tx('Sources: Government of India National Survey (2018; report 2019) and Ministry updates through 2026.', 'स्रोत: भारत सरकार का National Survey (2018; report 2019) और 2026 तक के Ministry updates।', language)}
+      </p>
+      <a href="https://socialjustice.gov.in/common/47564" target="_blank" rel="noreferrer" className="inline-block mt-2 text-[#54d5bf] hover:text-white text-[11px] underline underline-offset-2">
+        {tx('Government of India source', 'भारत सरकार का source', language)} ↗
+      </a>
     </div>
     </div>
 
@@ -390,9 +384,9 @@ export default function Home() {
       className="text-lg font-bold text-[#f0ede6] mb-2"
       style={{ fontFamily: 'var(--font-display)' }}
       >
-      {language === 'hi' ? FEATURE_HI[i].title : f.title}
+      {language === 'hi' ? translateHindi(FEATURE_HI[i].title) : f.title}
       </h3>
-      <p className="text-[#8fa3bc] text-sm leading-relaxed mb-5">{language === 'hi' ? FEATURE_HI[i].desc : f.desc}</p>
+      <p className="text-[#8fa3bc] text-sm leading-relaxed mb-5">{language === 'hi' ? translateHindi(FEATURE_HI[i].desc) : f.desc}</p>
       <div className="flex items-center gap-1.5 text-sm font-semibold" style={{ color: f.color }}>
       {tx('Explore', 'देखें', language)}
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-200 group-hover:translate-x-1">
@@ -431,9 +425,9 @@ export default function Home() {
       className="text-lg font-bold text-[#f0ede6] mb-2"
       style={{ fontFamily: 'var(--font-display)' }}
       >
-      {language === 'hi' ? STEP_HI[i].title : s.title}
+      {language === 'hi' ? translateHindi(STEP_HI[i].title) : s.title}
       </h3>
-      <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? STEP_HI[i].body : s.body}</p>
+      <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? translateHindi(STEP_HI[i].body) : s.body}</p>
       </div>
     ))}
     </div>

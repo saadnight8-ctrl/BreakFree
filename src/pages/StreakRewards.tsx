@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useLanguage, tx } from '../i18n'
+import { useLanguage, tx, translateHindi } from '../i18n'
 
 const MILESTONES = [
   { days: 1, badge: '🌱', title: 'Day One', hi: 'पहला दिन', desc: 'You decided to begin.', descHi: 'आपने शुरुआत करने का फैसला किया।', reward: 'Starter Badge', rewardHi: 'स्टार्टर बैज', reveal: 'Take 60 seconds to write one reason you want your life to look different.', revealHi: '60 सेकंड लेकर एक कारण लिखें कि आप अपनी ज़िंदगी को अलग क्यों देखना चाहते हैं।' },
@@ -159,7 +159,7 @@ export default function StreakRewards() {
               </div>
               <div>
                 <p className="text-[#a78bfa] text-xs uppercase tracking-widest font-bold mb-2">{tx('Current streak', 'वर्तमान स्ट्रीक', language)}</p>
-                <h2 className="text-2xl font-black text-[#f0ede6] mb-2" style={{ fontFamily: 'var(--font-display)' }}>{next ? (language === 'hi' ? `${next.hi} तक` : `Next: ${next.title}`) : tx('All milestones reached', 'सभी उपलब्धियाँ हासिल', language)}</h2>
+                <h2 className="text-2xl font-black text-[#f0ede6] mb-2" style={{ fontFamily: 'var(--font-display)' }}>{next ? (language === 'hi' ? `${translateHindi(next.hi)} तक` : `Next: ${next.title}`) : tx('All milestones reached', 'सभी उपलब्धियाँ हासिल', language)}</h2>
                 <p className="text-[#8fa3bc] text-sm leading-relaxed">{next ? tx(`${next.days - currentDays} days to go`, `${next.days - currentDays} दिन बाकी`, language) : tx('Keep going at your own pace.', 'अपनी गति से आगे बढ़ते रहें।', language)}</p>
               </div>
             </div>
@@ -229,8 +229,8 @@ export default function StreakRewards() {
                     <span className={`text-4xl ${isEarned ? '' : 'grayscale'}`}>{m.badge}</span>
                     <span className="text-xs font-bold text-[#8fa3bc]">{m.days} {tx('days', 'दिन', language)}</span>
                   </div>
-                  <h3 className="text-[#f0ede6] font-black mb-1" style={{ fontFamily: 'var(--font-display)' }}>{language === 'hi' ? m.hi : m.title}</h3>
-                  <p className="text-[#8fa3bc] text-sm">{language === 'hi' ? m.descHi : m.desc}</p>
+                  <h3 className="text-[#f0ede6] font-black mb-1" style={{ fontFamily: 'var(--font-display)' }}>{language === 'hi' ? translateHindi(m.hi) : m.title}</h3>
+                  <p className="text-[#8fa3bc] text-sm">{language === 'hi' ? translateHindi(m.descHi) : m.desc}</p>
                   <div className="mt-5 text-xs font-bold" style={{ color: isEarned ? '#a78bfa' : '#657b96' }}>{isClaimed ? tx('REWARD REVEALED ✓', 'रिवॉर्ड खुल गया ✓', language) : isEarned ? tx('TAP TO REVEAL', 'देखने के लिए टैप करें', language) : tx('LOCKED', 'लॉक्ड', language)}</div>
                 </button>
               )
@@ -271,14 +271,14 @@ export default function StreakRewards() {
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <span className="text-[#a78bfa] text-xs uppercase tracking-widest font-bold">{language === 'hi' ? selected.hi : selected.title}</span>
+                    <span className="text-[#a78bfa] text-xs uppercase tracking-widest font-bold">{language === 'hi' ? translateHindi(selected.hi) : selected.title}</span>
                     <span className="rounded-full border border-[#1a9e8a]/30 bg-[#1a9e8a]/10 px-3 py-1 text-[10px] font-bold tracking-widest text-[#54d5bf] uppercase">{tx('Reward unlocked', 'रिवॉर्ड अनलॉक', language)}</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-[#f0ede6] mb-2" style={{ fontFamily: 'var(--font-display)' }}>
-                    {language === 'hi' ? selected.rewardHi : selected.reward}
+                    {language === 'hi' ? translateHindi(selected.rewardHi) : selected.reward}
                   </h3>
                   <p className="text-[#c8d8e8] text-sm md:text-base leading-relaxed mb-5">
-                    {language === 'hi' ? selected.revealHi : selected.reveal}
+                    {language === 'hi' ? translateHindi(selected.revealHi) : selected.reveal}
                   </p>
                   <div className="rounded-2xl border border-[#a78bfa]/20 bg-[#0b1830]/70 p-4">
                     <p className="text-[#8fa3bc] text-xs uppercase tracking-[0.18em] font-bold mb-1">{tx('Your unlocked moment', 'आपका अनलॉक पल', language)}</p>
@@ -304,8 +304,8 @@ export default function StreakRewards() {
               return (
                 <button key={item.id} type="button" onClick={() => chooseCheckIn(item.id)} className={`bf-card text-left rounded-2xl p-6 border ${active ? 'border-[#1a9e8a]/50 bg-[#1a9e8a]/10' : 'border-[#1e3050] bg-[#111f3a]/70'}`}>
                   <div className="text-2xl text-[#1a9e8a] mb-4">{item.icon}</div>
-                  <h3 className="text-[#f0ede6] font-bold mb-2">{language === 'hi' ? item.hi : item.title}</h3>
-                  <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? item.bodyHi : item.body}</p>
+                  <h3 className="text-[#f0ede6] font-bold mb-2">{language === 'hi' ? translateHindi(item.hi) : item.title}</h3>
+                  <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? translateHindi(item.bodyHi) : item.body}</p>
                   <div className="mt-4 text-xs font-bold text-[#1a9e8a]">{active ? tx('Saved for today ✓', 'आज के लिए सेव ✓', language) : tx('Choose this →', 'इसे चुनें →', language)}</div>
                 </button>
               )

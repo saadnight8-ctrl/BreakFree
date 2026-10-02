@@ -1,4 +1,4 @@
-import { useLanguage, tx } from '../i18n'
+import { useLanguage, tx, translateHindi } from '../i18n'
 import { Link } from 'react-router'
 
 const STEPS = [
@@ -21,8 +21,8 @@ export default function Directions() {
     <section className="py-16 bg-[#0a1628]">
       <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-5">
         {STEPS.map((step, i) => <div key={step.title} className="bf-card rounded-2xl p-6">
-          <div className="flex items-center gap-4 mb-4"><div className="w-11 h-11 rounded-xl bg-[#1a9e8a]/15 border border-[#1a9e8a]/30 flex items-center justify-center text-lg">{step.icon}</div><div><span className="text-[#1a9e8a] text-xs font-bold">0{i + 1}</span><h2 className="text-[#f0ede6] font-bold text-base" style={{ fontFamily: 'var(--font-display)' }}>{language === 'hi' ? step.hi : step.title}</h2></div></div>
-          <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? step.bodyHi : step.body}</p>
+          <div className="flex items-center gap-4 mb-4"><div className="w-11 h-11 rounded-xl bg-[#1a9e8a]/15 border border-[#1a9e8a]/30 flex items-center justify-center text-lg">{step.icon}</div><div><span className="text-[#1a9e8a] text-xs font-bold">0{i + 1}</span><h2 className="text-[#f0ede6] font-bold text-base" style={{ fontFamily: 'var(--font-display)' }}>{language === 'hi' ? translateHindi(step.hi) : step.title}</h2></div></div>
+          <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? translateHindi(step.bodyHi) : step.body}</p>
         </div>)}
       </div>
     </section>

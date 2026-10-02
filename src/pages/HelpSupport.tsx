@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router'
-import { useLanguage, tx } from '../i18n'
+import { useLanguage, tx, translateHindi } from '../i18n'
 
 const HELPLINES = [
   { name: 'National Drug Helpline', hi: 'राष्ट्रीय ड्रग हेल्पलाइन', number: '14446', detail: 'Drug support helpline', detailHi: 'ड्रग सहायता हेल्पलाइन', color: '#1a9e8a' },
@@ -52,8 +52,8 @@ export default function HelpSupport() {
               <a key={h.number} href={`tel:${h.number.replace(/-/g, '')}`} className="group bf-card rounded-2xl px-6 py-5" style={{ ['--accent' as string]: h.color } as CSSProperties}>
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="text-[#f0ede6] font-semibold text-sm mb-1">{language === 'hi' ? h.hi : h.name}</div>
-                    <div className="text-[#8fa3bc] text-xs">{language === 'hi' ? h.detailHi : h.detail}</div>
+                    <div className="text-[#f0ede6] font-semibold text-sm mb-1">{language === 'hi' ? translateHindi(h.hi) : h.name}</div>
+                    <div className="text-[#8fa3bc] text-xs">{language === 'hi' ? translateHindi(h.detailHi) : h.detail}</div>
                   </div>
                   <span className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-black" style={{ color: h.color, background: `${h.color}15`, border: `1px solid ${h.color}35` }}>↗</span>
                 </div>
@@ -77,8 +77,8 @@ export default function HelpSupport() {
               <div key={r.title} className="bf-card rounded-2xl p-6">
                 <div className="text-3xl mb-4">{r.icon}</div>
                 <h3 className="text-[#f0ede6] font-bold mb-1" style={{ fontFamily: 'var(--font-display)' }}>{r.title}</h3>
-                <p className="text-[#a78bfa] text-xs mb-3">{language === 'hi' ? (r.locHi ?? r.location) : r.location}</p>
-                <p className="text-[#c8d8e8] text-sm leading-relaxed">{language === 'hi' ? r.descHi : r.desc}</p>
+                <p className="text-[#a78bfa] text-xs mb-3">{language === 'hi' ? translateHindi(r.locHi ?? r.location) : r.location}</p>
+                <p className="text-[#c8d8e8] text-sm leading-relaxed">{language === 'hi' ? translateHindi(r.descHi) : r.desc}</p>
               </div>
             ))}
           </div>
@@ -95,8 +95,8 @@ export default function HelpSupport() {
             {PEER_TIPS.map((tip, i) => (
               <div key={tip.title} className="bf-card rounded-2xl p-6">
                 <div className="w-8 h-8 rounded-full bg-[#1a9e8a]/15 border border-[#1a9e8a]/30 flex items-center justify-center mb-4 text-[#1a9e8a] text-sm font-bold">{i + 1}</div>
-                <h3 className="text-[#f0ede6] font-bold mb-2 text-sm">{language === 'hi' ? tip.hi : tip.title}</h3>
-                <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? tip.bodyHi : tip.body}</p>
+                <h3 className="text-[#f0ede6] font-bold mb-2 text-sm">{language === 'hi' ? translateHindi(tip.hi) : tip.title}</h3>
+                <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? translateHindi(tip.bodyHi) : tip.body}</p>
               </div>
             ))}
           </div>

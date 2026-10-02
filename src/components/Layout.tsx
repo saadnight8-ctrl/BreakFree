@@ -17,7 +17,6 @@ export default function Layout() {
     { label: c.faq, to: '/faq' },
     { label: c.help, to: '/help' },
     { label: c.streak, to: '/streak' },
-    { label: c.contact, to: '/contact' },
   ]
 
   const footerPages = [

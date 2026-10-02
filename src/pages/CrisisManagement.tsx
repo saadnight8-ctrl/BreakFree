@@ -1,4 +1,4 @@
-import { useLanguage, tx } from '../i18n'
+import { useLanguage, tx, translateHindi } from '../i18n'
 
 const WARNING_SIGNS = [
   { en: 'Sudden mood changes', hi: 'अचानक मूड में बदलाव', level: 'Watch' },
@@ -52,7 +52,7 @@ export default function CrisisManagement() {
             {WARNING_SIGNS.map(w => {
               const c = colors[w.level]
               return <div key={w.en} className="flex items-center justify-between gap-4 rounded-xl px-5 py-4" style={{ background: c.bg, border: `1px solid ${c.border}` }}>
-                <span className="text-[#f0ede6] text-sm font-medium">{language === 'hi' ? w.hi : w.en}</span>
+                <span className="text-[#f0ede6] text-sm font-medium">{language === 'hi' ? translateHindi(w.hi) : w.en}</span>
                 <span className="text-xs font-bold px-3 py-1 rounded-full shrink-0" style={{ background: c.bg, color: c.text, border: `1px solid ${c.border}` }}>{w.level}</span>
               </div>
             })}
@@ -69,8 +69,8 @@ export default function CrisisManagement() {
           <div className="grid md:grid-cols-2 gap-5">
             {OVERDOSE.map(s => <div key={s.step} className="bf-card rounded-2xl p-6 border-red-500/20">
               <div className="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center mb-4 text-red-400 font-black">{s.step}</div>
-              <h3 className="text-[#f0ede6] font-bold mb-2">{language === 'hi' ? s.titleHi : s.title}</h3>
-              <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? s.bodyHi : s.body}</p>
+              <h3 className="text-[#f0ede6] font-bold mb-2">{language === 'hi' ? translateHindi(s.titleHi) : s.title}</h3>
+              <p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? translateHindi(s.bodyHi) : s.body}</p>
             </div>)}
           </div>
         </div>

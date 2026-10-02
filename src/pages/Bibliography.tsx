@@ -22,6 +22,11 @@ const SOURCES = [
     usedFor: 'Source for India-specific information about drug demand reduction, Nasha Mukt Bharat Abhiyaan, and the National Drug De-Addiction Helpline (14446).'
   },
   {
+    title: 'National Drug Use Survey (NDUS 2025) — NDDTC, AIIMS & Ministry of Social Justice and Empowerment',
+    url: 'https://ndusindia.in/reports/',
+    usedFor: 'Used to check the current status of India’s national substance-use survey. The NDUS 2025 field survey is in progress, so the latest published national prevalence estimates shown on the homepage are from the 2018 survey, published in 2019.'
+  },
+  {
     title: 'Government of India — National Action Plan for Drug Demand Reduction',
     url: 'https://socialjustice.gov.in/schemes/42/archive',
     usedFor: 'Used for information about government drug-demand-reduction programmes, counselling, rehabilitation and awareness work in India.'

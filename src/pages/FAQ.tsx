@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLanguage, tx } from '../i18n'
+import { useLanguage, tx, translateHindi } from '../i18n'
 
 const FAQS = [
   {
@@ -48,7 +48,7 @@ export default function FAQ() {
       <section className="py-16 bg-[#0a1628]">
         <div className="max-w-3xl mx-auto px-6 space-y-14">
           {FAQS.map(section => {
-            const category = section.category[language]
+            const category = language === 'hi' ? translateHindi(section.category.hi) : section.category.en
             return (
               <div key={section.category.en}>
                 <h2 className="text-xl font-black text-[#e8a020] mb-6 flex items-center gap-3" style={{ fontFamily: 'var(--font-display)' }}>
@@ -61,12 +61,12 @@ export default function FAQ() {
                     return (
                       <div key={key} className={`bf-card bg-[#111f3a] border rounded-xl overflow-hidden ${isOpen ? 'border-[#1a9e8a]/50' : 'border-[#1e3050]'}`}>
                         <button className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left" onClick={() => setOpen(isOpen ? null : key)} aria-expanded={isOpen}>
-                          <span className="font-semibold text-[#f0ede6] text-sm leading-snug">{item.q[language]}</span>
+                          <span className="font-semibold text-[#f0ede6] text-sm leading-snug">{language === 'hi' ? translateHindi(item.q.hi) : item.q.en}</span>
                           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 mt-0.5 text-[#8fa3bc] transition-transform duration-300" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                             <path d="M4 6l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </button>
-                        {isOpen && <div className="px-6 pb-5"><p className="text-[#8fa3bc] text-sm leading-relaxed">{item.a[language]}</p></div>}
+                        {isOpen && <div className="px-6 pb-5"><p className="text-[#8fa3bc] text-sm leading-relaxed">{language === 'hi' ? translateHindi(item.a.hi) : item.a.en}</p></div>}
                       </div>
                     )
                   })}
@@ -79,7 +79,7 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto px-6 mt-16">
           <div className="bf-card rounded-2xl p-8 text-center">
             <p className="text-[#c8d8e8] text-sm mb-4">{tx('Still unsure about something?', 'फिर भी कुछ समझ नहीं आया?', language)}</p>
-            <a href="/contact" className="inline-flex items-center gap-2 bg-[#1a9e8a] hover:bg-[#158a78] text-white font-semibold px-7 py-3 rounded-full transition-all text-sm">{tx('Contact Us', 'संपर्क करें', language)} →</a>
+            <a href="/help" className="inline-flex items-center gap-2 bg-[#1a9e8a] hover:bg-[#158a78] text-white font-semibold px-7 py-3 rounded-full transition-all text-sm">{tx('Help & Support', 'मदद और सहायता', language)} →</a>
           </div>
         </div>
       </section>
